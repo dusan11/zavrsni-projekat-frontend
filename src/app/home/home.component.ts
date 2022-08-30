@@ -19,16 +19,16 @@ export class HomeComponent implements OnInit {
   }
 
   newOrder(){
-    this.router.navigate(['/narudzbe/nova']);
+    this.router.navigate(['/narudzbe/nova-narudzba']);
   }
   newProduct(){
-    this.router.navigate(['/proizvodi/novi']);
+    this.router.navigate(['/proizvodi/novi-proizvod']);
   }
   newCompany(){
-    this.router.navigate(['/kompanije/nova']);
+    this.router.navigate(['/kompanije/nova-kompanija']);
   }
   newTransaction(){
-    this.router.navigate(['/transakcije/nova']);
+    this.router.navigate(['/transakcije/nova-transakcija']);
   }
 
 

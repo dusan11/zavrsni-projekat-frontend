@@ -53,11 +53,11 @@ export class ProductsComponent implements OnInit {
   }
 
   editProduct(product:any){
-    this.router.navigate(['izmijeni/'+product.id], {relativeTo:this.route});
+    this.router.navigate(['izmijeni-proizvod/'+product.id], {relativeTo:this.route});
   }
 
   toNewProduct() {
-    this.router.navigate(['/proizvodi/novi']);
+    this.router.navigate(['/proizvodi/novi-proizvod']);
   }
 
 }

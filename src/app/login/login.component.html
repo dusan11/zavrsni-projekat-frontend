@@ -70,19 +70,19 @@
 
       <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
         <img class="mb-4" src="../assets/fitlogo.png" alt="FIT logo" width="72" height="72">
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 fw-normal">Ulogujte se</h1>
 
         <div class="form-floating">
           <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email"  [disabled]="submitted">
-          <label for="floatingInput">Email address</label>
-          <div style="color: red;" *ngIf="email && email.invalid && email.touched">This field is required and it must be in email format</div>
+          <label for="floatingInput">Vaša email adresa</label>
+          <div style="color: red;" *ngIf="email && email.invalid && email.touched">Ovo polje je obavezno i mora biti u email formatu!</div>
         </div>
         <div class="form-floating">
           <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password"  [disabled]="submitted">
-          <label for="floatingPassword">Password</label>
-          <div style="color: red;" *ngIf="password && password.invalid && password.touched">This field is required and it must be at least 5 characters long</div>
+          <label for="floatingPassword">Vaša lozinka</label>
+          <div style="color: red;" *ngIf="password && password.invalid && password.touched">Ovo polje je obavezno i mora biti najmanje 5 karaktera dugačko!</div>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="loginForm.invalid || submitted">Sign in</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="loginForm.invalid || submitted">Ulogujte se</button>
         <p class="mt-5 mb-3 text-muted">&copy; Dusan Matkovic 02-19</p>
       </form>
       <div class="spinner-border text-primary" role="status" *ngIf="isShownSpinner">

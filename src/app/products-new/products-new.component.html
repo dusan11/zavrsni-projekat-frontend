@@ -1,1 +1,56 @@
-<p>products-new works!</p>
+<form [formGroup]="storeProductForm" (ngSubmit)="storeProduct()">
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Naziv:</label>
+      <div class="col-sm-6">
+        <input type="text" id="name" class="form-control" required formControlName="name" />
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="nameNew && nameNew.invalid && nameNew.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="manifacturer" class="col-sm-2 col-form-label">Proizvođač:</label>
+      <div class="col-sm-6">
+        <input type="text" id="manifacturer" class="form-control" required formControlName="manifacturer" />
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="manifacturerNew && manifacturerNew.invalid && manifacturerNew.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="certificate_number" class="col-sm-2 col-form-label">Broj sertifikata:</label>
+      <div class="col-sm-6">
+        <input type="text" id="certificate_number" class="form-control" required formControlName="certificate_number" />
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="certificate_numberNew && certificate_numberNew.invalid && certificate_numberNew.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="price" class="col-sm-2 col-form-label">Cijena:</label>
+      <div class="col-sm-6">
+        <input type="text" id="price" class="form-control" required formControlName="price" />
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="priceNew && priceNew.invalid && priceNew.touched">
+        Ovo polje je obavezno. Cijena mora biti broj.
+      </div>
+    </div>
+  
+    <br />
+    <div class="form-group row">
+      <label for="price" class="col-sm-2 col-form-label"></label>
+      <div class="btn-group col-sm-6">
+        <button type="reset" class="btn btn-outline-danger" (click)="toProducts()">
+          Odustani
+        </button>
+        <button type="submit" class="btn btn-outline-success" [disabled]="storeProductForm.invalid"> 
+          Sačuvaj
+        </button>
+      </div>
+    </div>
+        
+  </form>
+<div class="spinner-border text-primary" role="status" *ngIf="isShownSpinner">
+    <span class="sr-only"></span>
+</div>
+  <br><hr>
