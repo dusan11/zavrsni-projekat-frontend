@@ -5,19 +5,19 @@ import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../service/data.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-companies',
+  templateUrl: './companies.component.html',
+  styleUrls: ['./companies.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class CompaniesComponent implements OnInit {
 
-  products:any;
+  companies:any;
   data:any;
 
   constructor(private router:Router, private dataService:DataService, private formBuilder:FormBuilder, private toastr:ToastrService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getAllProducts();
+    this.getAllCompanies();
   }
 
   logout() {
@@ -25,14 +25,14 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  getAllProducts(){
-    this.dataService.getProducts().subscribe(res => {
-      this.products = res;
+  getAllCompanies(){
+    this.dataService.getCompanies().subscribe(res => {
+      this.companies = res;
     })
-  } 
+  }
 
-  deleteProduct(id:any){
-    this.dataService.deleteProduct(id).subscribe(res=>{
+  deleteCompany(id:any){
+    this.dataService.deleteCompany(id).subscribe(res=>{
       this.data=res;
       console.log(res);
       if(this.data.status === 204){
@@ -52,12 +52,12 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  editProduct(product:any){
-    this.router.navigate(['izmijeni-proizvod/'+product.id], {relativeTo:this.route});
+  editCompany(company:any){
+    this.router.navigate(['izmijeni-kompaniju/'+company.id], {relativeTo:this.route});
   }
 
-  toNewProduct() {
-    this.router.navigate(['/proizvodi/novi-proizvod']);
+  toNewCompany() {
+    this.router.navigate(['/kompanije/nova-kompanija']);
   }
 
 }

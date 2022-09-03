@@ -17,6 +17,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { ProductsNewComponent } from './products-new/products-new.component';
 import { ProductsEditComponent } from './products-edit/products-edit.component';
+import { CompaniesComponent } from './companies/companies.component';
+import { CompaniesEditComponent } from './companies-edit/companies-edit.component';
+import { CompaniesNewComponent } from './companies-new/companies-new.component';
 
 
 const routes:Routes = [
@@ -31,6 +34,17 @@ const routes:Routes = [
           },
           {
             path:'izmijeni-proizvod/:id', component:ProductsEditComponent
+          }
+        ],
+      },
+      {
+        path:'kompanije', component:CompaniesComponent,
+        children: [
+          {
+            path:'nova-kompanija', component:CompaniesNewComponent
+          },
+          {
+            path:'izmijeni-kompaniju/:id', component:CompaniesEditComponent
           }
         ],
       }
@@ -50,7 +64,10 @@ const routes:Routes = [
     LoginComponent,
     ProductsComponent,
     ProductsNewComponent,
-    ProductsEditComponent
+    ProductsEditComponent,
+    CompaniesComponent,
+    CompaniesEditComponent,
+    CompaniesNewComponent
   ],
   imports: [
     BrowserModule,

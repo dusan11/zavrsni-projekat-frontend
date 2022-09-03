@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-12">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h5>Lista kompanija</h5>
+        <hr>
+        <div style="height: 80%;overflow: scroll; text-align: center; vertical-align: middle">
+            <table class="table table-striped table-sm table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Naziv</th>
+                  <th scope="col">Adresa</th>
+                  <th scope="col">Broj računa</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Odgovorna osoba</th>
+                  <th scope="col">Akcije</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let comp of companies">
+                  <td>{{ comp.id }}</td>
+                  <td>{{ comp.name }}</td>
+                  <td>{{ comp.adress }}</td>
+                  <td>{{ comp.account_no }}</td>
+                  <td>{{ comp.email }}</td>
+                  <td>{{ comp.responsible_person }}</td>
+                  <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-outline-warning btn-sm" (click)="editCompany(comp)">
+                        Izmijeni
+                      </button>
+                      <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteCompany(comp.id)">
+                        Obriši
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>

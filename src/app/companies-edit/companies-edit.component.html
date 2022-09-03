@@ -1,0 +1,71 @@
+<form [formGroup]="editCompanyForm" (ngSubmit)="editCompany()">
+    <div class="form-group row">
+        <label for="id" class="col-sm-2 col-form-label">ID:</label>
+        <div class="col-sm-6">
+          <input type="text" id="id" class="form-control" disabled value={{company.id}}/>
+        </div>
+      </div>
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Naziv:</label>
+      <div class="col-sm-6">
+        <input type="text" id="name" class="form-control" required formControlName="name" />
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="name && name.invalid && name.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="adress" class="col-sm-2 col-form-label">Adresa:</label>
+      <div class="col-sm-6">
+        <input type="text" id="adress" class="form-control" required formControlName="adress" />
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="adress && adress.invalid && adress.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="account_no" class="col-sm-2 col-form-label">Broj računa:</label>
+      <div class="col-sm-6">
+        <input type="text" id="account_no" class="form-control" required formControlName="account_no" />
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="account_no && account_no.invalid && account_no.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">Email:</label>
+      <div class="col-sm-6">
+        <input type="text" id="email" class="form-control" required formControlName="email" />
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="email && email.invalid && email.touched">
+        Ovo polje je obavezno. Mora biti format emaila.
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="responsible_person" class="col-sm-2 col-form-label">Odgovorna osoba:</label>
+        <div class="col-sm-6">
+          <input type="text" id="responsible_person" class="form-control" required formControlName="responsible_person" />
+        </div>
+        <div class="col-sm-4" style="color: red" *ngIf="responsible_person && responsible_person.invalid && responsible_person.touched">
+          Ovo polje je obavezno.
+        </div>
+      </div>
+  
+    <br />
+    <div class="form-group row">
+      <label for="price" class="col-sm-2 col-form-label"></label>
+      <div class="btn-group col-sm-6">
+        <button type="reset" class="btn btn-outline-danger" (click)="toCompanies()">
+          Odustani
+        </button>
+        <button type="submit" class="btn btn-outline-success" [disabled]="editCompanyForm.invalid"> 
+          Sačuvaj izmjene
+        </button>
+      </div>
+    </div>
+        
+  </form>
+<div class="spinner-border text-primary" role="status" *ngIf="isShownSpinner">
+    <span class="sr-only"></span>
+</div>
+  <br><hr>
