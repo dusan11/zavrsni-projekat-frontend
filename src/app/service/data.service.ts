@@ -13,15 +13,15 @@ export class DataService {
   }
 
   userInfo(userId:any){
-    return this.http.get('http://127.0.0.1:8000/api/user/'+userId);
+    return this.http.get('http://127.0.0.1:8000/api/korisnik/'+userId);
   }
 
   changeUserName(data: any, userId:any){
-    return this.http.put('http://127.0.0.1:8000/api/user/'+userId+'/promijeni-ime', data);
+    return this.http.put('http://127.0.0.1:8000/api/korisnik/'+userId+'/promijeni-ime', data);
   }
 
   changeUserEmail(data: any, userId:any){
-    return this.http.put('http://127.0.0.1:8000/api/user/'+userId+'/promijeni-email', data);
+    return this.http.put('http://127.0.0.1:8000/api/korisnik/'+userId+'/promijeni-email', data);
   }
 
   getProducts(){

@@ -20,6 +20,9 @@ import { ProductsEditComponent } from './products-edit/products-edit.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { CompaniesEditComponent } from './companies-edit/companies-edit.component';
 import { CompaniesNewComponent } from './companies-new/companies-new.component';
+import { OrderStatusComponent } from './order-status/order-status.component';
+import { OrderTypeComponent } from './order-type/order-type.component';
+import { AccountComponent } from './account/account.component';
 
 
 const routes:Routes = [
@@ -47,6 +50,15 @@ const routes:Routes = [
             path:'izmijeni-kompaniju/:id', component:CompaniesEditComponent
           }
         ],
+      },
+      {
+        path: 'status-narudzbe', component:OrderStatusComponent
+      },
+      {
+        path: 'vrsta-narudzbe', component:OrderTypeComponent
+      },
+      {
+        path: 'nalog', component:AccountComponent
       }
     ],
     canActivate: [AuthGuard],
@@ -67,7 +79,10 @@ const routes:Routes = [
     ProductsEditComponent,
     CompaniesComponent,
     CompaniesEditComponent,
-    CompaniesNewComponent
+    CompaniesNewComponent,
+    OrderStatusComponent,
+    OrderTypeComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

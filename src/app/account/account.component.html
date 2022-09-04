@@ -1,0 +1,100 @@
+
+<div class="btn-toolbar mb-2 mb-md-0">
+    <div class="col-sm-11">
+        <h2>Nalog</h2>
+    </div>
+    <div class="col-sm-1">
+        <div class="spinner-border float-right" role="status" *ngIf="isShownSpinner">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+    
+  
+    
+  
+</div>
+<hr>
+<h5>Detalji Vašeg naloga</h5>
+
+<form>
+<div class="form-group row">
+  <label for="staticName" class="col-sm-1 col-form-label">Ime: </label>
+  <div class="col-sm-2">
+    <input type="text" readonly class="form-control-plaintext" id="staticName" value={{userName}}>
+  </div>
+  <div class="col-sm-2">
+    <button style="width:150px" type="button" class="btn btn-sm btn-outline-secondary" (click)="toggleShowName()">Promijeni ime</button>
+  </div>
+</div>
+<div class="form-group row">
+  <label for="staticEmail" class="col-sm-1 col-form-label">Email: </label>
+  <div class="col-sm-2">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{userEmail}}>
+  </div>
+  <div class="col-sm-2">
+    <button style="width:150px" type="button" class="btn btn-sm btn-outline-secondary" (click)="toggleShow()">Promijeni email</button>
+  </div>
+</div>
+</form>
+
+<!-- Name form -->
+
+<div *ngIf="isShownName">
+<hr>
+<h5>Promijeni ime:</h5>
+<form [formGroup]="nameChangeForm" (ngSubmit)="changeUserName()">
+  <div class="form-group row">
+    <label for="oldName" class="col-sm-2 col-form-label">Staro ime:</label>
+    <div class="col-sm-2">
+      <input type="text" readonly class="form-control-plaintext" id="oldName" value={{userName}}>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="newName" class="col-sm-2 col-form-label">Novo ime:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="newName" placeholder="" required formControlName="name">
+      <div style="color: red;" *ngIf="name && name.invalid && name.touched">Ovo polje je obavezno!</div>
+    </div>
+    <div class="col-sm-2">
+        <label for="newName" class="col-sm-2 col-form-label"></label>
+        <div class="btn-group col-sm-2">
+          <button type="reset" class="btn btn-outline-danger" (click)="toggleShowName()">Zatvori</button>
+          <button class="btn btn-outline-success" type="submit" [disabled]="nameChangeForm.invalid">Sačuvaj</button>
+        </div>
+      </div>
+  </div>
+  <br>
+  
+  
+</form>
+</div>
+
+<!-- Email form -->
+
+<div *ngIf="isShown">
+<hr>
+<h5>Promijeni email:</h5>
+<form [formGroup]="emailChangeForm" (ngSubmit)="changeEmail()">
+  <div class="form-group row">
+    <label for="oldEmail" class="col-sm-2 col-form-label">Stari email:</label>
+    <div class="col-sm-2">
+      <input type="text" readonly class="form-control-plaintext" id="oldEmail" value={{userEmail}}>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="newEmail" class="col-sm-2 col-form-label">Novi email:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="newEmail" placeholder="" required formControlName="email">
+      <div style="color: red;" *ngIf="email && email.invalid && email.touched">Ovo polje je obavezno!</div>
+    </div> 
+    <div class="col-sm-2">
+        <label for="newEmail" class="col-sm-2 col-form-label"></label>
+        <div class="btn-group col-sm-2">
+          <button type="reset" class="btn btn-outline-danger" (click)="toggleShow()">Zatvori</button>
+          <button class="btn btn-outline-success" type="submit" [disabled]="emailChangeForm.invalid">Sačuvaj</button>
+        </div>
+      </div>
+  </div>
+  <br>
+  
+</form>
