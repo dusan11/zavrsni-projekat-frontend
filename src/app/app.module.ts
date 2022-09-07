@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AuthGuard } from './auth.guard';
@@ -23,6 +24,9 @@ import { CompaniesNewComponent } from './companies-new/companies-new.component';
 import { OrderStatusComponent } from './order-status/order-status.component';
 import { OrderTypeComponent } from './order-type/order-type.component';
 import { AccountComponent } from './account/account.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrdersEditComponent } from './orders-edit/orders-edit.component';
+import { OrdersNewComponent } from './orders-new/orders-new.component';
 
 
 const routes:Routes = [
@@ -59,6 +63,17 @@ const routes:Routes = [
       },
       {
         path: 'nalog', component:AccountComponent
+      },
+      {
+        path:'narudzbe', component:OrdersComponent,
+        children: [
+          {
+            path:'nova-narudzba', component:OrdersNewComponent
+          },
+          {
+            path:'izmijeni-narudzbu/:id', component:OrdersEditComponent
+          }
+        ]
       }
     ],
     canActivate: [AuthGuard],
@@ -82,12 +97,16 @@ const routes:Routes = [
     CompaniesNewComponent,
     OrderStatusComponent,
     OrderTypeComponent,
-    AccountComponent
+    AccountComponent,
+    OrdersComponent,
+    OrdersEditComponent,
+    OrdersNewComponent
   ],
   imports: [
     BrowserModule,
     TooltipModule.forRoot(),
     ToastrModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

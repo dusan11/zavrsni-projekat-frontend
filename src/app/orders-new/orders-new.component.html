@@ -1,0 +1,53 @@
+<h5>Nova narudžba</h5>
+<hr>
+<form [formGroup]="newOrderForm" (ngSubmit)="saveOrder()">
+    <div class="form-group row">
+      <label for="date" class="col-sm-2 col-form-label">Datum:</label>
+      <div class="col-sm-6">
+        <input type="text" id="date" class="form-control" required formControlName="date" bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig"/>
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="date && date.invalid && date.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="company" class="col-sm-2 col-form-label">Kompanija:</label>
+      <div class="col-sm-6">
+        <select class="form-control autoselect" id="company" formControlName="company">
+            <option *ngFor="let company of companies" value={{company.id}}>{{company.name}}</option>
+        </select>
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="company && company.invalid && company.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="order_type" class="col-sm-2 col-form-label">Tip narudžbe:</label>
+      <div class="col-sm-6">
+        <select class="form-control autoselect" id="order_type" formControlName="orderType">
+            <option *ngFor="let orderType of orderTypes" value={{orderType.id}}>{{orderType.type}}</option>
+        </select>
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="orderType && orderType.invalid && orderType.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+  
+    <br />
+    <div class="form-group row">
+      <label for="price" class="col-sm-2 col-form-label"></label>
+      <div class="btn-group col-sm-6">
+        <button type="reset" class="btn btn-outline-danger" (click)="toOrders()">
+          Odustani
+        </button>
+        <button type="submit" class="btn btn-outline-success" [disabled]="newOrderForm.invalid"> 
+          Sačuvaj
+        </button>
+      </div>
+    </div>
+        
+  </form>
+<div class="spinner-border text-primary" role="status" *ngIf="isShownSpinner">
+    <span class="sr-only"></span>
+</div>
+<br><hr> 

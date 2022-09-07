@@ -99,7 +99,7 @@ export class DataService {
     return this.http.put('http://127.0.0.1:8000/api/status-narudzbe/'+id, data);
   }
 
-  getOrder(){
+  getOrders(){
     return this.http.get('http://127.0.0.1:8000/api/narudzbe');
   }
 

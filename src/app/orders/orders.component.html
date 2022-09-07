@@ -1,0 +1,44 @@
+<div class="row">
+    <h2>Narudžbe</h2>
+    <br><hr>
+      <div class="col-12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h5>Lista narudžbi</h5>
+        <hr>
+        <div style="height: 80%;overflow: scroll; text-align: center;">
+          <table id="example" class="table table-sm table-striped table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Datum</th>
+                <th scope="col">Ukupna cijena</th>
+                <th scope="col">Kompanija</th>
+                <th scope="col">Status narudžbe</th>
+                <th scope="col">Vrsta narudžbe</th>
+                <th scope="col">Opcije</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orders">
+                <td>{{ order.id }}</td>
+                <td>{{ order.date }}</td>
+                <td>{{ order.total_price }}</td>
+                <td>{{ order.company.name }}</td>
+                <td>{{ order.order_status.status }}</td>
+                <td>{{ order.order_type.type }}</td>
+                <td>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-warning btn-sm" (click)="editOrder(order)">
+                      Izmijeni
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
