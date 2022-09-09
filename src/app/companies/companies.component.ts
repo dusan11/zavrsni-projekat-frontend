@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -14,10 +15,21 @@ export class CompaniesComponent implements OnInit {
   companies:any;
   data:any;
 
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
+
   constructor(private router:Router, private dataService:DataService, private formBuilder:FormBuilder, private toastr:ToastrService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getAllCompanies();
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+
+    };
+  }
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
   }
 
   logout() {
@@ -28,6 +40,7 @@ export class CompaniesComponent implements OnInit {
   getAllCompanies(){
     this.dataService.getCompanies().subscribe(res => {
       this.companies = res;
+      this.dtTrigger.next(this.companies);
     })
   }
 

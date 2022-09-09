@@ -4,6 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../service/data.service';
 
+import { Subject } from 'rxjs';
+
+
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -14,10 +18,25 @@ export class ProductsComponent implements OnInit {
   products:any;
   data:any;
 
+  dataTable:any;
+
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
+
   constructor(private router:Router, private dataService:DataService, private formBuilder:FormBuilder, private toastr:ToastrService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    
     this.getAllProducts();
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+
+    };
+  }
+
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
   }
 
   logout() {
@@ -28,7 +47,10 @@ export class ProductsComponent implements OnInit {
   getAllProducts(){
     this.dataService.getProducts().subscribe(res => {
       this.products = res;
-    })
+      this.dtTrigger.next(this.products);
+    });
+    //let data = JSON.parse(this.products);
+   // this.dataTable.columns().add(this.products);
   } 
 
   deleteProduct(id:any){
@@ -59,5 +81,7 @@ export class ProductsComponent implements OnInit {
   toNewProduct() {
     this.router.navigate(['/proizvodi/novi-proizvod']);
   }
+
+  
 
 }

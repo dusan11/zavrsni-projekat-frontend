@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, UntypedFormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -16,10 +17,24 @@ export class FinantialCardComponent implements OnInit {
 
   companyId:any;
 
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
+
   constructor(private router:Router, private dataService:DataService, private formBuilder:FormBuilder, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.getCompanies();
+    this.dtOptions = {
+      destroy: true,
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      
+
+    };
+  }
+
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
   }
 
   getCompanies(){
@@ -39,6 +54,10 @@ export class FinantialCardComponent implements OnInit {
   getFinantialCard(){
     this.dataService.finantialCard(this.finantialCardForm.value.companyId).subscribe(res => {
       this.data = res;
+      //this.dtTrigger.unsubscribe();
+      this.dtOptions.destroy;
+      
+      this.dtTrigger.next(this.data);
     })
   }
 

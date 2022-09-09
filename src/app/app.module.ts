@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ToastrModule } from 'ngx-toastr';
+import { DataTablesModule } from "angular-datatables";
 
 import { AuthGuard } from './auth.guard';
 
@@ -137,7 +138,8 @@ const routes:Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
