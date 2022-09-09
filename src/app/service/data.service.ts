@@ -128,4 +128,28 @@ export class DataService {
 
   }
 
+  getTransactions(){
+    return this.http.get('http://127.0.0.1:8000/api/transakcije');
+  }
+
+  getTransactionById(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/transakcije/'+id);
+  }
+
+  newTransaction(data:any){
+    return this.http.post('http://127.0.0.1:8000/api/transakcije', data);
+  }
+
+  editTransaction(data:any, id:any){
+    return this.http.put('http://127.0.0.1:8000/api/transakcije/'+id, data);
+  }
+
+  finantialCard(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/transakcije/kompanija/'+id);
+  }
+
+  orderTransactions(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/transakcije/narudzba/'+id);
+  }
+
 }

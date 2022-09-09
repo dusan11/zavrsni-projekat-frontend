@@ -1,0 +1,68 @@
+<h5>Izmijeni trasakciju</h5> 
+<hr>
+<form [formGroup]="editTransactionForm" (ngSubmit)="editTransaction()">
+    <div class="form-group row">
+        <label for="id" class="col-sm-2 col-form-label">ID:</label>
+        <div class="col-sm-6">
+          <input type="text" id="id" class="form-control" disabled value={{transaction.id}}/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="date" class="col-sm-2 col-form-label">Datum:</label>
+        <div class="col-sm-6">
+          <input type="text" id="date" class="form-control" required formControlName="date" value={{transaction.date}}/>
+          <div class="col-sm-4" style="color: red" *ngIf="date && date.invalid && date.touched">
+            Datum je obavezan u YYYY-MM-DD formatu.
+          </div>
+        </div>
+      </div>
+    <div class="form-group row">
+        <label for="amount" class="col-sm-2 col-form-label">Iznos:</label>
+        <div class="col-sm-6">
+          <input type="text" id="amount" class="form-control" required formControlName="amount" value={{transaction.amount}/>
+        </div>
+        <div class="col-sm-4" style="color: red" *ngIf="amount && amount.invalid && amount.touched">
+          Ovo polje je obavezno. Iznos mora biti broj.
+        </div>
+      </div>
+    <div class="form-group row">
+      <label for="company" class="col-sm-2 col-form-label">Kompanija:</label>
+      <div class="col-sm-6">
+        <select class="form-control autoselect" id="company" formControlName="company" value={{transaction.company_id}}>
+            <option *ngFor="let company of companies" value={{company.id}}>{{company.name}}</option>
+        </select>
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="company && company.invalid && company.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="order_no" class="col-sm-2 col-form-label">Broj narudžbe:</label>
+      <div class="col-sm-6">
+        <select class="form-control autoselect" id="order_no" formControlName="order" value={{transaction.order_id}}>
+            <option *ngFor="let order of orders" value={{order.id}}>{{order.id}}</option>
+        </select>
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="order && order.invalid && order.touched">
+        Ovo polje je obavezno
+      </div>
+    </div>
+  
+    <br />
+    <div class="form-group row">
+      <label for="price" class="col-sm-2 col-form-label"></label>
+      <div class="btn-group col-sm-6">
+        <button type="reset" class="btn btn-outline-danger" (click)="goBack()">
+          Odustani
+        </button>
+        <button type="submit" class="btn btn-outline-success" [disabled]="editTransactionForm.invalid"> 
+          Sačuvaj
+        </button>
+      </div>
+    </div>
+        
+  </form>
+<div class="spinner-border text-primary" role="status" *ngIf="isShownSpinner">
+    <span class="sr-only"></span>
+</div>
+<br><hr> 

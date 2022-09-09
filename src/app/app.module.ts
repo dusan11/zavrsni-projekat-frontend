@@ -27,6 +27,12 @@ import { AccountComponent } from './account/account.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrdersEditComponent } from './orders-edit/orders-edit.component';
 import { OrdersNewComponent } from './orders-new/orders-new.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { TransactionsNewComponent } from './transactions-new/transactions-new.component';
+import { TransactionsEditComponent } from './transactions-edit/transactions-edit.component';
+import { FinantialCardComponent } from './finantial-card/finantial-card.component';
+import { TransactionsListComponent } from './transactions-list/transactions-list.component';
+import { TransactionsOrderComponent } from './transactions-order/transactions-order.component';
 
 
 const routes:Routes = [
@@ -72,6 +78,20 @@ const routes:Routes = [
           },
           {
             path:'izmijeni-narudzbu/:id', component:OrdersEditComponent
+          },
+          {
+            path:'transakcije/narudzba/:id', component:TransactionsOrderComponent
+          }
+        ]
+      },
+      {
+        path:'transakcije', component:TransactionsComponent,
+        children: [
+          {
+            path:'nova-transakcija', component:TransactionsNewComponent
+          },
+          {
+            path:'izmijeni-transakciju/:id', component:TransactionsEditComponent
           }
         ]
       }
@@ -100,7 +120,13 @@ const routes:Routes = [
     AccountComponent,
     OrdersComponent,
     OrdersEditComponent,
-    OrdersNewComponent
+    OrdersNewComponent,
+    TransactionsComponent,
+    TransactionsNewComponent,
+    TransactionsEditComponent,
+    FinantialCardComponent,
+    TransactionsListComponent,
+    TransactionsOrderComponent
   ],
   imports: [
     BrowserModule,

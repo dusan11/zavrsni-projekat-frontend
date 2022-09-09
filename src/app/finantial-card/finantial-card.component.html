@@ -1,0 +1,36 @@
+<h5>Finansijska kartica</h5>
+<hr>
+<form [formGroup]="finantialCardForm" (ngSubmit)="getFinantialCard()">
+<div class="form-group row">
+    <label for="company" class="col-sm-4 col-form-label">Odaberite kompaniju:</label>
+    <div class="col-sm-4">
+      <select class="form-control autoselect" id="company" formControlName="companyId">
+          <option *ngFor="let company of companies" value={{company.id}}>{{company.name}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-sm btn-primary col-sm-4">Prikaži transakcije</button>
+</div>
+</form>
+<hr>
+<div style="height: 80%;overflow: scroll; text-align: center;">
+    <table id="example" class="table table-sm table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Datum</th>
+          <th scope="col">Iznos</th>
+          <th scope="col">Kompanija</th>
+          <th scope="col">ID narudžbe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of data">
+          <td>{{ transaction.id }}</td>
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.amount }}</td>
+          <td>{{ transaction.company.name }}</td>
+          <td>{{ transaction.order_id }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

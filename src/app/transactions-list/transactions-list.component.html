@@ -1,0 +1,30 @@
+<div style="height: 80%;overflow: scroll; text-align: center;">
+    <table id="example" class="table table-sm table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Datum</th>
+          <th scope="col">Iznos</th>
+          <th scope="col">Kompanija</th>
+          <th scope="col">ID narudžbe</th>
+          <th scope="col">Opcije</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td>{{ transaction.id }}</td>
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.amount }}</td>
+          <td>{{ transaction.company.name }}</td>
+          <td>{{ transaction.order_id }}</td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-outline-warning btn-sm" (click)="editTransaction(transaction)">
+                Izmijeni
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

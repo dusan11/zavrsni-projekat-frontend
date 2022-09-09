@@ -1,0 +1,30 @@
+<h5>Transakcije za narudžbu #{{orderId}}</h5>
+<hr>
+<div style="overflow: scroll; text-align: center;">
+    <table id="example" class="table table-sm table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Datum</th>
+          <th scope="col">Iznos</th>
+          <th scope="col">Kompanija</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of data">
+          <td>{{ transaction.id }}</td>
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.amount }}</td>
+          <td>{{ transaction.company.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<br>
+<div class="row col-sm-4">
+    <div class="btn-group">
+        <button class="btn btn-sm btn-secondary" (click)="toOrders()">Na narudžbe</button>
+        <button class="btn btn-sm btn-secondary" (click)="toTransactions()">Na transakcije</button>
+    </div>
+</div>
+<br>

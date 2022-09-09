@@ -44,4 +44,9 @@ export class OrdersComponent implements OnInit {
 
   }
 
+  orderTransaction(orderId:any){
+    this.router.navigate(['transakcije/narudzba/'+orderId], {relativeTo:this.route})
+
+  }
+
 }
