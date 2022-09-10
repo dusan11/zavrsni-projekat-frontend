@@ -34,6 +34,11 @@ import { TransactionsEditComponent } from './transactions-edit/transactions-edit
 import { FinantialCardComponent } from './finantial-card/finantial-card.component';
 import { TransactionsListComponent } from './transactions-list/transactions-list.component';
 import { TransactionsOrderComponent } from './transactions-order/transactions-order.component';
+import { StockComponent } from './stock/stock.component';
+import { StockListComponent } from './stock-list/stock-list.component';
+import { StockProductComponent } from './stock-product/stock-product.component';
+import { StockNewComponent } from './stock-new/stock-new.component';
+import { StockEditComponent } from './stock-edit/stock-edit.component';
 
 
 const routes:Routes = [
@@ -95,6 +100,17 @@ const routes:Routes = [
             path:'izmijeni-transakciju/:id', component:TransactionsEditComponent
           }
         ]
+      },
+      {
+        path:'lager', component:StockComponent,
+        children: [
+          {
+            path:'novi-unos', component:StockNewComponent
+          },
+          {
+            path:'izmijeni-unos/:id', component:StockEditComponent
+          }
+        ]
       }
     ],
     canActivate: [AuthGuard],
@@ -127,7 +143,12 @@ const routes:Routes = [
     TransactionsEditComponent,
     FinantialCardComponent,
     TransactionsListComponent,
-    TransactionsOrderComponent
+    TransactionsOrderComponent,
+    StockComponent,
+    StockListComponent,
+    StockProductComponent,
+    StockNewComponent,
+    StockEditComponent
   ],
   imports: [
     BrowserModule,

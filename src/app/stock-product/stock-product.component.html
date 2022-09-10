@@ -1,0 +1,19 @@
+<form [formGroup]="productsStockLevelForm" (ngSubmit)="getStockLevel()">
+    <div class="form-group row">
+        <label for="product" class="col-sm-4 col-form-label">Odaberite proizvod:</label>
+        <div class="col-sm-4">
+          <select class="form-control autoselect" id="company" formControlName="productId">
+              <option *ngFor="let product of products" value={{product.id}}>{{product.name}}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-sm btn-primary col-sm-4">Prikaži stanje</button>
+    </div>
+    </form>
+    <hr>
+    <div>
+        <p>Stanje proizvoda na lageru:</p>
+        <div>
+            <p>{{data}}</p>
+        </div>
+    </div>
+    

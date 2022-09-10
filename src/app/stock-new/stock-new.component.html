@@ -1,0 +1,42 @@
+<h5>Novi unos</h5>
+<hr>
+<form [formGroup]="newStockEntryForm" (ngSubmit)="saveStockEntry()">
+    <div class="form-group row">
+        <label for="amount" class="col-sm-2 col-form-label">Količina:</label>
+        <div class="col-sm-6">
+          <input type="text" id="amount" class="form-control" required formControlName="amount" />
+        </div>
+        <div class="col-sm-4" style="color: red" *ngIf="amount && amount.invalid && amount.touched">
+          Ovo polje je obavezno. Iznos mora biti broj.
+        </div>
+      </div>
+    <div class="form-group row">
+      <label for="product" class="col-sm-2 col-form-label">Proizvod:</label>
+      <div class="col-sm-6">
+        <select class="form-control autoselect" id="product" formControlName="product">
+            <option *ngFor="let product of products" value={{product.id}}>{{product.name}}</option>
+        </select>
+      </div>
+      <div class="col-sm-4" style="color: red" *ngIf="product && product.invalid && product.touched">
+        Ovo polje je obavezno 
+      </div>
+    </div>
+  
+    <br />
+    <div class="form-group row">
+      <label for="price" class="col-sm-2 col-form-label"></label>
+      <div class="btn-group col-sm-6">
+        <button type="reset" class="btn btn-outline-danger" (click)="goBack()">
+          Odustani
+        </button>
+        <button type="submit" class="btn btn-outline-success" [disabled]="newStockEntryForm.invalid"> 
+          Sačuvaj
+        </button>
+      </div>
+    </div>
+        
+  </form>
+<div class="spinner-border text-primary" role="status" *ngIf="isShownSpinner">
+    <span class="sr-only"></span>
+</div>
+<br><hr>

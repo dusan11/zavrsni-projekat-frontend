@@ -30,6 +30,9 @@ export class HomeComponent implements OnInit {
   newTransaction(){
     this.router.navigate(['/transakcije/nova-transakcija']);
   }
+  newStock(){
+    this.router.navigate(['/lager/novi-unos']);
+  }
 
 
 }

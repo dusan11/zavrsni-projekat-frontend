@@ -152,4 +152,35 @@ export class DataService {
     return this.http.get('http://127.0.0.1:8000/api/transakcije/narudzba/'+id);
   }
 
+  getStockEntries(){
+    return this.http.get('http://127.0.0.1:8000/api/lager');
+  }
+
+  getStockEntry(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/lager/'+id);
+  }
+
+  newStockEntry(data:any){
+    return this.http.post('http://127.0.0.1:8000/api/lager', data);
+  }
+
+  editStockEntry(data:any, id:any){
+    return this.http.put('http://127.0.0.1:8000/api/lager/'+id, data);
+  }
+
+  deleteStockEntry(id:any){
+    return this.http.delete('http://127.0.0.1:8000/api/lager/'+id);
+
+  }
+
+  getProductStock(){
+    return this.http.get('http://127.0.0.1:8000/api/lager/proizvodi');
+  }
+
+  getProductStockById(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/lager/proizvodi/'+id);
+  }
+
+
+
 }

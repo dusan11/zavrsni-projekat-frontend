@@ -1,4 +1,4 @@
-<h5>Izmijeni trasakciju</h5> 
+<h5>Izmijeni trasakciju</h5>  
 <hr>
 <form [formGroup]="editTransactionForm" (ngSubmit)="editTransaction()">
     <div class="form-group row">
@@ -19,7 +19,7 @@
     <div class="form-group row">
         <label for="amount" class="col-sm-2 col-form-label">Iznos:</label>
         <div class="col-sm-6">
-          <input type="text" id="amount" class="form-control" required formControlName="amount" value={{transaction.amount}/>
+          <input type="text" id="amount" class="form-control" required formControlName="amount" value={{transaction.amount}}/>
         </div>
         <div class="col-sm-4" style="color: red" *ngIf="amount && amount.invalid && amount.touched">
           Ovo polje je obavezno. Iznos mora biti broj.
