@@ -5,10 +5,18 @@
     height: 100px;
     width: 100px;
     padding: 30px;
-    float: right;
+    padding-top: 0px;
+    
     text-align: center;
 
     }
     body#tinymce {
     background: #FFFFFF
     }
+
+#stanje {
+    font-size: large;
+    margin-top: auto;
+    vertical-align: middle;
+    padding-top: 50px;
+}

@@ -9,6 +9,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ToastrModule } from 'ngx-toastr';
 import { DataTablesModule } from "angular-datatables";
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 import { AuthGuard } from './auth.guard';
 
@@ -39,6 +40,7 @@ import { StockListComponent } from './stock-list/stock-list.component';
 import { StockProductComponent } from './stock-product/stock-product.component';
 import { StockNewComponent } from './stock-new/stock-new.component';
 import { StockEditComponent } from './stock-edit/stock-edit.component';
+
 
 
 const routes:Routes = [
@@ -160,7 +162,8 @@ const routes:Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    DataTablesModule
+    DataTablesModule,
+    NgApexchartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

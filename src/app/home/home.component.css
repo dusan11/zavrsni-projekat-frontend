@@ -98,10 +98,14 @@ body {
     -webkit-box-shadow: 5px 5px 15px -1px #BEBEBE; 
     box-shadow: 5px 5px 15px -1px #BEBEBE;
     background: #FFFFFF;
-    height: 350px;
+    height: 500px;
     padding: 30px;
+
     }
     body#tinymce {
     background: #FFFFFF
+    }
+    ::-webkit-scrollbar {
+      width: 2px;
     }
   

@@ -174,7 +174,7 @@ export class DataService {
   }
 
   getProductStock(){
-    return this.http.get('http://127.0.0.1:8000/api/lager/proizvodi');
+    return this.http.get('http://127.0.0.1:8000/api/lager/stanje/proizvodi');
   }
 
   getProductStockById(id:any){

@@ -9,6 +9,7 @@
     <title>Dashboard Template · Bootstrap v5.2</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
 
     
 
@@ -190,7 +191,7 @@
         <button type="button" class="btn btn-outline-secondary" (click)="newProduct()"><img src="../assets/new-product.png" alt="Novi proizvod" tooltip="Novi proizvod" placement="bottom"></button>
         <button type="button" class="btn btn-outline-secondary" (click)="newCompany()"><img src="../assets/new-company.png" alt="Nova kompanija" tooltip="Nova kompanija" placement="bottom"></button>
         <button type="button" class="btn btn-outline-secondary" (click)="newTransaction()"><img src="../assets/new-transaction2.png" alt="Nova transakcija" tooltip="Nova transakcija" placement="bottom"></button>
-        <button type="button" class="btn btn-outline-secondary" (click)="newStock()"><img src="../assets/new-transaction2.png" alt="Novi unos u lager" tooltip="Novi unos u lager" placement="bottom"></button>
+        <button type="button" class="btn btn-outline-secondary" (click)="newStock()"><img src="../assets/warehouse2.png" alt="Novi unos u lager" tooltip="Novi unos u lager" placement="bottom"></button>
       </div>
       <hr>
 
@@ -205,11 +206,29 @@
           <div *ngIf="rla.isActive">
             <div class="row">
               <div class="col-sm-5" id="demoObject">
-                <app-finantial-card></app-finantial-card>
+                <div style="text-align:center; overflow: scroll;">
+                  <h5>Stanje proizvoda na lageru</h5>
+                  <hr>
+                  <table id="my-chart" class="charts-css bar show-labels data-spacing-10">
+                    <caption> Proizvodi na lageru </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col"> Količina </th>
+                        <th scope="col"> Naziv proizvoda </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let entry of data">
+                        <th scope="row"> {{entry.name}} </th>
+                        <td style="--size:{{entry.amount}}/1000;">{{entry.amount}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <label class="col-sm-1"></label>
               <div class="col-sm-5" id="demoObject">
-                <app-stock-product></app-stock-product>
+                <app-finantial-card></app-finantial-card>
               </div>
             </div>
           </div>

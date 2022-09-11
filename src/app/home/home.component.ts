@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+//import 'charts.css';
+import { DataService } from '../service/data.service';
+
+
 
 @Component({
   selector: 'app-home',
@@ -8,9 +12,33 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router, private route:ActivatedRoute) { }
+  data:any;
+
+
+
+  constructor(private router:Router, private route:ActivatedRoute, private dataService:DataService) {
+    
+   }
+
+   getChartData(){
+    this.dataService.getProductStock().subscribe(res => {
+      this.data = res;
+      console.log(this.data)
+
+
+      
+    });
+
+   }
+
+
+
 
   ngOnInit(): void {
+    this.getChartData();
+
+    
+    
   }
 
   logout() {
