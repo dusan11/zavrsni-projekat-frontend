@@ -1,6 +1,8 @@
+<h5>Stanje proizvoda na lageru</h5>
+<hr>
 <form [formGroup]="productsStockLevelForm" (ngSubmit)="getStockLevel()">
     <div class="form-group row">
-        <label for="product" class="col-sm-4 col-form-label">Odaberite proizvod:</label>
+        <label for="product" class="col-sm-4 col-form-label">Proizvod:</label>
         <div class="col-sm-4">
           <select class="form-control autoselect" id="company" formControlName="productId">
               <option *ngFor="let product of products" value={{product.id}}>{{product.name}}</option>
@@ -12,8 +14,8 @@
     <hr>
     <div>
         <p>Stanje proizvoda na lageru:</p>
-        <div>
-            <p>{{data}}</p>
+        <div id="demoObject">
+            <p [ngStyle]="{'color': (data>0) ? '#23c902' : '#fc0000 '}">{{data}}</p>
         </div>
     </div>
     

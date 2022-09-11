@@ -1,0 +1,9 @@
+#demoObject {
+    -webkit-box-shadow: 1px 14px 25px -11px rgba(190,190,190,0.35); 
+    box-shadow: 1px 14px 25px -11px rgba(190,190,190,0.35);
+    background: #FFFFFF;
+    padding: 25px;;
+    }
+    body#tinymce {
+    background: #FFFFFF
+    }

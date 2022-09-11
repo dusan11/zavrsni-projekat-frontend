@@ -1,0 +1,14 @@
+#demoObject {
+    -webkit-box-shadow: -1px 15px 11px -11px #BEBEBE; 
+    box-shadow: -1px 15px 11px -11px #BEBEBE;
+    background: #FFFFFF;
+    height: 100px;
+    width: 100px;
+    padding: 30px;
+    float: right;
+    text-align: center;
+
+    }
+    body#tinymce {
+    background: #FFFFFF
+    }

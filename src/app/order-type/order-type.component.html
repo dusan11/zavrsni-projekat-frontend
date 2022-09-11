@@ -1,5 +1,5 @@
 <div
-        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" >
         <h1 class="h2">Vrsta narudžbe</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <div>
+      <div >
         <form [formGroup]="newOrderTypeForm" (ngSubmit)="saveNewOrderType()">
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="new-company-type" style="padding-right: 10px;" >Unesite novu vrstu narudžbe:</label>
@@ -37,8 +37,8 @@
       <hr />
 
       
-      <div class="row">
-        <div class="table-responsive col-8">
+      <div class="row" id="demoObject">
+        <div class="table-responsive col-8" >
           <h5>Lista vrsti narudžbi</h5>
           <hr>
           <table class="table row-border hover" style="text-align: center">
@@ -64,7 +64,7 @@
             </tbody>
           </table>
         </div>
-        <div class="col-4">
+        <div class="col-4" >
           <h5>Detalji vrste narudžbi</h5>
           <hr>
           <form [formGroup]="editOrderTypeForm" (ngSubmit)="editOrderType()">

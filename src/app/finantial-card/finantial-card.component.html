@@ -2,7 +2,7 @@
 <hr>
 <form [formGroup]="finantialCardForm" (ngSubmit)="getFinantialCard()">
 <div class="form-group row">
-    <label for="company" class="col-sm-4 col-form-label">Odaberite kompaniju:</label>
+    <label for="company" class="col-sm-4 col-form-label">Kompanija:</label>
     <div class="col-sm-4">
       <select class="form-control autoselect" id="company" formControlName="companyId">
           <option *ngFor="let company of companies" value={{company.id}}>{{company.name}}</option>
@@ -27,7 +27,7 @@
         <tr *ngFor="let transaction of data">
           <td>{{ transaction.id }}</td>
           <td>{{ transaction.date }}</td>
-          <td>{{ transaction.amount }}</td>
+          <td [ngStyle]="{'color': (transaction.amount>0) ? '#23c902' : '#fc0000 '}">{{ transaction.amount }}</td>
           <td>{{ transaction.company.name }}</td>
           <td>{{ transaction.order_id }}</td>
         </tr>

@@ -8,16 +8,12 @@
             <span class="sr-only"></span>
         </div>
     </div>
-    
-  
-    
-  
 </div>
 <hr>
 <h5>Detalji Vašeg naloga</h5>
 
 <form>
-<div class="form-group row">
+<div class="form-group row" id="demoObject">
   <label for="staticName" class="col-sm-1 col-form-label">Ime: </label>
   <div class="col-sm-2">
     <input type="text" readonly class="form-control-plaintext" id="staticName" value={{userName}}>
@@ -26,7 +22,7 @@
     <button style="width:150px" type="button" class="btn btn-sm btn-outline-secondary" (click)="toggleShowName()">Promijeni ime</button>
   </div>
 </div>
-<div class="form-group row">
+<div class="form-group row" id="demoObject">
   <label for="staticEmail" class="col-sm-1 col-form-label">Email: </label>
   <div class="col-sm-2">
     <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{userEmail}}>
@@ -39,7 +35,7 @@
 
 <!-- Name form -->
 
-<div *ngIf="isShownName">
+<div *ngIf="isShownName" id="demoObject">
 <hr>
 <h5>Promijeni ime:</h5>
 <form [formGroup]="nameChangeForm" (ngSubmit)="changeUserName()">
@@ -71,7 +67,7 @@
 
 <!-- Email form -->
 
-<div *ngIf="isShown">
+<div *ngIf="isShown" id="demoObject">
 <hr>
 <h5>Promijeni email:</h5>
 <form [formGroup]="emailChangeForm" (ngSubmit)="changeEmail()">

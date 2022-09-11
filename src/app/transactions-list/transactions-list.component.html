@@ -14,7 +14,7 @@
         <tr *ngFor="let transaction of transactions">
           <td>{{ transaction.id }}</td>
           <td>{{ transaction.date }}</td>
-          <td>{{ transaction.amount }}</td>
+          <td [ngStyle]="{'color': (transaction.amount>0) ? '#23c902' : '#fc0000 '}">{{ transaction.amount }}</td>
           <td>{{ transaction.company.name }}</td>
           <td>{{ transaction.order_id }}</td>
           <td>

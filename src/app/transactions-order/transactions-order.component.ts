@@ -35,6 +35,7 @@ export class TransactionsOrderComponent implements OnInit {
   }
 
   getTransactions(){
+    
     this.dataService.orderTransactions(this.orderId).subscribe(res => {
       this.data = res;
       this.dtTrigger.next(this.data);

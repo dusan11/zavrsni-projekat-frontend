@@ -11,7 +11,7 @@
       <tbody>
         <tr *ngFor="let stock of stocks">
           <td>{{ stock.id }}</td>
-          <td>{{ stock.amount }}</td>
+          <td [ngStyle]="{'color': (stock.amount>0) ? '#23c902' : '#fc0000 '}">{{ stock.amount }}</td>
           <td>{{ stock.product.name }}</td>
           <td>
             <div class="btn-group" role="group" aria-label="Basic example">

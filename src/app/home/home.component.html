@@ -95,57 +95,57 @@
           <li class="nav-item">
             <a class="nav-link align-middle" href="#">
               <span class="align-middle">
-                <img src="../assets/home-icon.png" alt="Home icon" >
-                <span class="px-3 align-middle">Početna strana</span>
+                <img src="../assets/home-icon.png" alt="Home icon" routerLink='' routerLinkActive #rlHom="routerLinkActive" [routerLinkActiveOptions]="{ exact: true }">
+                <span class="px-3 align-middle" [ngStyle]="{'color': (rlHom.isActive) ? '#4a8bed' : '#000205'}">Početna strana</span>
               </span>
               
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/narudzbe">
+            <a class="nav-link" href="/narudzbe" routerLink='/narudzbe' routerLinkActive #rlOrd="routerLinkActive">
               <span class="align-middle">
                 <img src="../assets/order.png" alt="icon">
-                <span class="px-3 align-middle">Narudžbe</span>
+                <span class="px-3 align-middle" [ngStyle]="{'color': (rlOrd.isActive) ? '#4a8bed' : '#000205'}">Narudžbe</span>
               </span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/proizvodi">
+            <a class="nav-link" href="/proizvodi" routerLink='/proizvodi' routerLinkActive #rlPro="routerLinkActive">
               <span class="align-middle">
                 <img src="../assets/product.png" alt="icon">
-                <span class="px-3 align-middle">Proizvodi</span>
+                <span class="px-3 align-middle" [ngStyle]="{'color': (rlPro.isActive) ? '#4a8bed' : '#000205'}">Proizvodi</span>
               </span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/kompanije">
+            <a class="nav-link" href="/kompanije" routerLink='/kompanije' routerLinkActive #rlCom="routerLinkActive">
               <span class="align-middle">
                 <img src="../assets/company.png" alt="icon">
-                <span class="px-3 align-middle">Kompanije</span>
+                <span class="px-3 align-middle" [ngStyle]="{'color': (rlCom.isActive) ? '#4a8bed' : '#000205'}">Kompanije</span>
               </span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/lager">
+            <a class="nav-link" href="/lager" routerLink='/lager' routerLinkActive #rlSto="routerLinkActive">
               <span class="align-middle">
                 <img src="../assets/stock.png" alt="icon">
-                <span class="px-3 align-middle">Lager</span>
+                <span class="px-3 align-middle" [ngStyle]="{'color': (rlSto.isActive) ? '#4a8bed' : '#000205'}">Lager</span>
               </span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/transakcije">
+            <a class="nav-link" href="/transakcije" routerLink='/transakcije' routerLinkActive #rlTra="routerLinkActive">
               <span class="align-middle">
                 <img src="../assets/transaction.png" alt="icon">
-                <span class="px-3 align-middle">Transakcije</span>
+                <span class="px-3 align-middle" [ngStyle]="{'color': (rlTra.isActive) ? '#4a8bed' : '#000205'}">Transakcije</span>
               </span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/nalog">
+            <a class="nav-link" href="/nalog" routerLink='/nalog' routerLinkActive #rlAcc="routerLinkActive">
               <span class="align-middle">
                 <img src="../assets/account.png" alt="icon">
-                <span class="px-3 align-middle">Nalog</span>
+                <span class="px-3 align-middle" [ngStyle]="{'color': (rlAcc.isActive) ? '#4a8bed' : '#000205'}">Nalog</span>
               </span>
             </a>
           </li>
@@ -156,18 +156,18 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="/vrsta-narudzbe">
+            <a class="nav-link" href="/vrsta-narudzbe" routerLink='/vrsta-narudzbe' routerLinkActive #rlVN="routerLinkActive">
               <span class="align-middle">
                 <img src="../assets/order-type.png" alt="icon">
-                <span class="px-3 align-middle">Vrsta narudžbe</span>
+                <span class="px-3 align-middle" [ngStyle]="{'color': (rlVN.isActive) ? '#4a8bed' : '#000205'}">Vrsta narudžbe</span>
               </span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/status-narudzbe">
+            <a class="nav-link" href="/status-narudzbe" routerLink='/status-narudzbe' routerLinkActive #rlSN="routerLinkActive">
               <span class="align-middle">
                 <img src="../assets/order-status.png" alt="icon">
-                <span class="px-3 align-middle">Status narudžbe</span>
+                <span class="px-3 align-middle" [ngStyle]="{'color': (rlSN.isActive) ? '#4a8bed' : '#000205'}">Status narudžbe</span>
               </span>
             </a>
           </li>
@@ -186,11 +186,11 @@
 
 
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-outline-secondary" (click)="newOrder()"><img src="../assets/new-order.png" alt="">  Nova narudžba</button>
-        <button type="button" class="btn btn-outline-secondary" (click)="newProduct()"><img src="../assets/new-product.png" alt="">  Novi proizvod</button>
-        <button type="button" class="btn btn-outline-secondary" (click)="newCompany()"><img src="../assets/new-company.png" alt="">  Nova kompanija</button>
-        <button type="button" class="btn btn-outline-secondary" (click)="newTransaction()"><img src="../assets/new-transaction2.png" alt="">  Nova transakcija</button>
-        <button type="button" class="btn btn-outline-secondary" (click)="newStock()"><img src="../assets/new-transaction2.png" alt="">  Novi unos u lager</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="newOrder()"><img src="../assets/new-order.png" alt="Nova narudžba" tooltip="Nova narudžba" placement="bottom"></button>
+        <button type="button" class="btn btn-outline-secondary" (click)="newProduct()"><img src="../assets/new-product.png" alt="Novi proizvod" tooltip="Novi proizvod" placement="bottom"></button>
+        <button type="button" class="btn btn-outline-secondary" (click)="newCompany()"><img src="../assets/new-company.png" alt="Nova kompanija" tooltip="Nova kompanija" placement="bottom"></button>
+        <button type="button" class="btn btn-outline-secondary" (click)="newTransaction()"><img src="../assets/new-transaction2.png" alt="Nova transakcija" tooltip="Nova transakcija" placement="bottom"></button>
+        <button type="button" class="btn btn-outline-secondary" (click)="newStock()"><img src="../assets/new-transaction2.png" alt="Novi unos u lager" tooltip="Novi unos u lager" placement="bottom"></button>
       </div>
       <hr>
 
@@ -198,18 +198,26 @@
       <br><br>
 
       <div class="container">
-        <div class="row" style="width:100%, height:100%">
+        <div class="row">
             <router-outlet></router-outlet>
         </div>
+        <div routerLink='' routerLinkActive #rla="routerLinkActive" [routerLinkActiveOptions]="{ exact: true }">
+          <div *ngIf="rla.isActive">
+            <div class="row">
+              <div class="col-sm-5" id="demoObject">
+                <app-finantial-card></app-finantial-card>
+              </div>
+              <label class="col-sm-1"></label>
+              <div class="col-sm-5" id="demoObject">
+                <app-stock-product></app-stock-product>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
-          <br><br><hr>
-          <div class="col-sm-5" style="border: 1px solid; border-radius: 5px; padding: 10px; box-shadow: 5px 10px #888888;">
-            <app-finantial-card></app-finantial-card>
-          </div>
-          <label class="col-sm-2"></label>
-          <div class="col-sm-5" style="border: 1px solid; border-radius: 5px; padding: 10px; box-shadow: 5px 10px #888888;">
-            <app-stock-product></app-stock-product>
-          </div>
+          
+          
+          
         </div>
       </div>
       
